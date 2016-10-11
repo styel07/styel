@@ -8,6 +8,8 @@ var PORT = process.env.PORT || 3000;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var projects = require('./routes/projects');
+var skills = require('./routes/skills');
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use(logger());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/projects', projects);
+app.use('/skills', skills);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
