@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/project/:name', function(req, res, next) {
-  // req.send()
+  req.send('post project');
 });
 
 
