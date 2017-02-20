@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 3000;
 
 // Routes
 const app = express();
-const admin = require('./routes/admin');
+const users = require('./routes/users');
 const projects = require('./routes/projects');
 const skills = require('./routes/skills');
 // const home = require('./routes/index');
@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 
-app.use('/admin', admin);
+app.use('/users', users);
 app.use('/projects', projects);
 app.use('/skills', skills);
 
