@@ -9,7 +9,7 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 // Routes
-const routes = require('./routes/index');
+const home = require('./routes/index');
 const users = require('./routes/users');
 const projects = require('./routes/projects');
 const skills = require('./routes/skills');
@@ -23,10 +23,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 
-app.use('/', routes);
 app.use('/users', users);
 app.use('/projects', projects);
 app.use('/skills', skills);
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.send('This is the home page');
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
