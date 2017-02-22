@@ -24,18 +24,18 @@ const UserSchema = mongoose.Schema({
 const User = module.exports = mongoose.model('User', UserSchema);
 
 // Search a User with specific Id
-module.exports = getUserById = function(id, callback) {
+module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 };
 
 // Search for specific Username
-module.exports = getUserByUsername = function(username, callback) {
+module.exports.getUserByUsername = function(username, callback) {
   const query = { username: username };
   User.findOne(query, callback);
 };
 
 // Encrypt User Password with Bcrypt
-module.exports.addUser = (newUser, callback) => {
+module.exports.addUser = function(newUser, callback) {
   // Generates Salt
   bcrypt.genSalt(10, (err, salt) => {
     if(err) throw err;
@@ -43,6 +43,6 @@ module.exports.addUser = (newUser, callback) => {
     bcrypt.hash(newUser.password, salt, (err, hash) => {
       newUser.password = hash;
       newUser.save(callback);
-    })
-  })
-}
+    });
+  });
+};
