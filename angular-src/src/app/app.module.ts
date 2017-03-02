@@ -20,27 +20,11 @@ import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
-  },
-
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent },
 ]
 
 @NgModule({
