@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const config = require('./config/database');
 const router = express.Router();
 // const favicon = require('serve-favicon');
@@ -36,9 +37,16 @@ app.use(cors());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Body Parser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 app.use('/users', users);
 app.use('/projects', projects);
@@ -47,13 +55,6 @@ app.use('/skills', skills);
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.send('This is the home page');
-});
-
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
 });
 
 app.listen(PORT, () => {
