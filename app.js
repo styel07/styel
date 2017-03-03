@@ -53,8 +53,12 @@ app.use('/projects', projects);
 app.use('/skills', skills);
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.send('This is the home page');
+router.get('/', (req, res) => {
+  res.send('Invalid End Point');
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(PORT, () => {
