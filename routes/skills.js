@@ -1,13 +1,51 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+
+const Skill = require('../models/skill');
 
 /* GET skills listing. */
 router.get('/', (req, res, next) => {
-  res.send('get all skills');
+  Skill.find((err, skills) => {
+    let skillList = {};
+    skills.forEach((skill) => {
+        skillList[skill.name] = skill;
+    });
+
+    if(err) {
+      res.json({
+        success: false,
+        msg: 'No Skills Found'
+      });
+    } else {
+      //console.log(skills);
+      res.send(skillList);
+    }
+  });
 });
 
 router.post('/add', (req, res, next) => {
-  res.send('add new skill');
+  let newSkill = new Skill({
+    name: req.body.name,
+    type: req.body.type,
+    description: req.body.description,
+    duration: req.body.duration
+  });
+
+  Skill.addSkill(newSkill, (err, skill) => {
+    if(err) {
+      res.json({
+        success: false,
+        msg: 'Failed to add Skill'
+      });
+    } else {
+      res.json({
+        success: true,
+        msg: 'Skill Added'
+      });
+    }
+  });
 });
 
 router.put('/update/:id', (req, res, next) => {
@@ -25,4 +63,10 @@ router.put('/delete/:id', (req, res, next) => {
     res.send('unable to delete skill');
   }
 });
+
+// Profile
+router.get('/protected', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+  res.send('protected skills route');
+});
+
 module.exports = router;
