@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -22,7 +23,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //Auth Guard
 import { AuthGuard } from './guards/auth.guard';
-import { SkillsComponent } from './components/skills/skills.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,8 +42,6 @@ const appRoutes: Routes = [
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    SkillsComponent,
-    SkillsComponent,
     SkillsComponent
   ],
   imports: [

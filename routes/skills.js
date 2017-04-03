@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-
+const config = require('../config/database');
 const Skill = require('../models/skill');
 
 /* GET skills listing. */
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
         msg: 'No Skills Found'
       });
     } else {
-      //console.log(skills);
+      console.log(skillList);
       res.send(skillList);
     }
   });
