@@ -15,13 +15,14 @@ import { LoginComponent } from './components/login/login.component';
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { SkillService } from './services/skill.service';
 
 // Flash Messages
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //Auth Guard
 import { AuthGuard } from './guards/auth.guard';
-import { SkillsComponent } from './skills/skills.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,6 +42,8 @@ const appRoutes: Routes = [
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    SkillsComponent,
+    SkillsComponent,
     SkillsComponent
   ],
   imports: [
@@ -51,7 +54,7 @@ const appRoutes: Routes = [
     FlashMessagesModule
   ],
   // all services should be in providers
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, SkillService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
