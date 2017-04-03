@@ -21,11 +21,13 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //Auth Guard
 import { AuthGuard } from './guards/auth.guard';
+import { SkillsComponent } from './skills/skills.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'skills', component: SkillsComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
 ]
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
