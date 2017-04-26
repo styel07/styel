@@ -10,7 +10,8 @@ export class SkillService {
   getAllSkills() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('https://styel.me/skills/', {headers: headers})
+    console.log('getallSkills Fired Skill Services');
+    return this.http.get('http://localhost:3000/skills', {headers: headers})
       .map(res => res.json());
   }
 }

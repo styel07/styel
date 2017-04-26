@@ -7,20 +7,21 @@ const Skill = require('../models/skill');
 
 /* GET skills listing. */
 router.get('/', (req, res, next) => {
-  Skill.find((err, skills) => {
-    let skillList = {};
-    skills.forEach((skill) => {
-        skillList[skill.name] = skill;
-    });
+  console.log('hit skills route');
+  Skill.find({}, function(err, docs) {
 
+    // let skillList = {};
+    // skills.forEach((skill) => {
+    //     skillList[skill.name] = skill;
+    // });
     if(err) {
       res.json({
         success: false,
         msg: 'No Skills Found'
       });
     } else {
-      console.log(skillList);
-      res.send(skillList);
+      // console.log(docs);
+      res.send(docs);
     }
   });
 });

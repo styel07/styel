@@ -21,9 +21,13 @@ const SkillSchema = mongoose.Schema({
 // Mongoose.model takes in the name of the model and the schema
 const Skill = module.exports = mongoose.model('Skill', SkillSchema);
 
+module.exports.getAllSkills = function(name, callback) {
+  console.log('entered getAllSkills backend');
+  Skill.find();
+}
 
 module.exports.getSkillById = function(id, callback) {
-  Skill.findByUd(id, callback);
+  Skill.findById(id, callback);
 };
 
 module.exports.getSkillByName = function(name, callback) {

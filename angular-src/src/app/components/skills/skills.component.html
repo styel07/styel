@@ -1,7 +1,9 @@
 <div *ngIf="skills">
-  <h2 class="page-header">{{skills.name}}</h2>
-  <ul class="list-group">
-    <li class="list-group-item">Username: {{skills.type}}</li>
-    <li class="list-group-item">Email: {{skills.description}}</li>
-  </ul>
+  <div *ngFor="let skill of skills">
+    <h2 class="page-header">{{skill.name}}</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Type: {{skill.type}}</li>
+      <li class="list-group-item">Description: {{skill.description}}</li>
+    </ul>
+  </div>
 </div>
