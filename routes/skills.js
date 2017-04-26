@@ -7,7 +7,6 @@ const Skill = require('../models/skill');
 
 /* GET skills listing. */
 router.get('/', (req, res, next) => {
-  console.log('hit skills route');
   Skill.find({}, function(err, docs) {
 
     // let skillList = {};
@@ -20,8 +19,8 @@ router.get('/', (req, res, next) => {
         msg: 'No Skills Found'
       });
     } else {
-      // console.log(docs);
-      res.send(docs);
+      res.json({skills: docs});
+      // res.send(docs);
     }
   });
 });
