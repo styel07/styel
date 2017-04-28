@@ -1,5 +1,11 @@
-<div *ngIf="skills">
-  <div *ngFor="let skill of skills">
-    <h2 class="page-header">{{skill.name}} Years: {{skill.duration}}</h2>
+<div *ngFor="let skill of skills">
+  <div class="col-md-3" *ngIf="skills">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">{{skill.name}}</h4>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+        <p class="card-text">Years {{skill.duration}}</p>
+      </div>
+    </div>
   </div>
 </div>
