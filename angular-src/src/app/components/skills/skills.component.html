@@ -1,9 +1,5 @@
 <div *ngIf="skills">
   <div *ngFor="let skill of skills">
-    <h2 class="page-header">{{skill.name}}</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Type: {{skill.type}}</li>
-      <li class="list-group-item">Description: {{skill.description}}</li>
-    </ul>
+    <h2 class="page-header">{{skill.name}} Years: {{skill.duration}}</h2>
   </div>
 </div>

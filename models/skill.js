@@ -7,12 +7,12 @@ const SkillSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  type: {
-    type: String
-  },
-  description: {
-    type: String
-  },
+  // type: {
+  //   type: String
+  // },
+  // description: {
+  //   type: String
+  // },
   duration: {
     type: Number
   }
@@ -21,10 +21,10 @@ const SkillSchema = mongoose.Schema({
 // Mongoose.model takes in the name of the model and the schema
 const Skill = module.exports = mongoose.model('Skill', SkillSchema);
 
-module.exports.getAllSkills = function(name, callback) {
-  console.log('entered getAllSkills backend');
-  Skill.find();
-}
+module.exports.getAllSkills = function(callback) {
+  console.log('getAllSkills Method Entered');
+  Skill.find(callback);
+};
 
 module.exports.getSkillById = function(id, callback) {
   Skill.findById(id, callback);
