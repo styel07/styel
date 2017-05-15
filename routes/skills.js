@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
   console.log('entered skills route');
   Skill.getAllSkills((err, data) => {
     console.log('data: ',data);
-      res.json(data);
+      res.json({data});
   });
 });
 
