@@ -1,11 +1,33 @@
-<div *ngFor="let skill of skills">
-  <div class="col-md-3" *ngIf="skills">
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">{{skill.name}}</h4>
-        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-        <p class="card-text">Years {{skill.duration}}</p>
-      </div>
-    </div>
-  </div>
+<div class="row">
+	<div class="col-sm-12">
+		<h2>Front End</h2>
+		<div *ngFor="let skill of skills">
+			<div class="col-sm-2" *ngIf="skill.type === 'f'">
+		    <div class="card">
+		      <div class="card-block">
+		        <h4 class="card-title">{{skill.name}}</h4>
+		        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+		        <p class="card-text">Years {{skill.duration}}</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-sm-12">
+		<h2>Back End</h2>
+		<div *ngFor="let skill of skills">
+			<div class="col-sm-2" *ngIf="skill.type === 'b'">
+				<div class="card">
+					<div class="card-block">
+						<h4 class="card-title">{{skill.name}}</h4>
+						<!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+						<p class="card-text">Years {{skill.duration}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
