@@ -28,6 +28,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { ProjectEditComponent } from './components/projects/project-edit/project-edit.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     SkillsEditComponent,
     SkillsListComponent,
     ProjectListComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    FooterComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
