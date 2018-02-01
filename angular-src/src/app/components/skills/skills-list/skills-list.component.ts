@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillService } from '../../services/skill.service';
+import { SkillService } from '../../../services/skill.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  selector: 'app-skills-list',
+  templateUrl: './skills-list.component.html',
+  styleUrls: ['./skills-list.component.css']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsListComponent implements OnInit {
   skills = [
 		{ name: 'angular', duration: 2, type: 'f' },
 		{ name: 'express', duration: 2, type: 'b' },
